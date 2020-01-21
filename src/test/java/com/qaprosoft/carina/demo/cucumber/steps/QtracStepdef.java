@@ -23,7 +23,7 @@ public class QtracStepdef extends CucumberRunner {
 		System.out.println("Appliction launched");
 		M1CloudActivities mobile = new M1CloudActivities();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities = mobile.setCapabilities("Samsung_Galaxy_J4_Plus.properties");
+		capabilities = mobile.setCapabilities("Samsung_Galaxy_J6.properties");
 		//getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host"));
 		Login = initPage(getDriver("DEFAULT", capabilities, R.CONFIG.get("selenium_host")), QtracLoginPageBase.class);
 	}
@@ -37,6 +37,7 @@ public class QtracStepdef extends CucumberRunner {
 
 	@Then("^click on login$")
 	public void ClickOnLoginBtn() {
+		System.out.println("clicklogin");
 		Login.clickonLoginBtn();
 	}
 

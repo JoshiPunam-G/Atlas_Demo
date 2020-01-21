@@ -1,6 +1,4 @@
 package com.qaprosoft.carina.demo;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Properties;
@@ -8,29 +6,23 @@ import java.util.Properties;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qaprosoft.carina.core.foundation.AbstractTest;
-import com.qaprosoft.carina.core.foundation.utils.Configuration;
 import com.qaprosoft.carina.core.foundation.utils.R;
-import com.qaprosoft.carina.core.foundation.utils.factory.DeviceType.Type;
 import com.qaprosoft.carina.core.foundation.utils.ownership.MethodOwner;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.CarinaDescriptionPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.LoginPageBase;
 import com.qaprosoft.carina.demo.mobile.gui.pages.common.WelcomePageBase;
-import com.qk.m1cloud.api.POSTUploadAPKMethod;
-
-
 
 public class MobileSampleTest extends AbstractTest {
 
 	//@BeforeMethod
 	public void setCustCaps(String jenkinsJobEnvironment) throws Exception{
-		String propFile = propertiesFile(jenkinsJobEnvironment);
+	//	String propFile = propertiesFile(jenkinsJobEnvironment);
 		
-		String path = "src/main/resources/m1Cloud/android/"+propFile;
+		String path = "src/main/resources/m1Cloud/android/"+jenkinsJobEnvironment;
 		Properties prop = new Properties();
 		InputStream input = new FileInputStream(path);
 		prop.load(input);
@@ -41,6 +33,8 @@ public class MobileSampleTest extends AbstractTest {
 		capabilities.setCapability("Capability_ApplicationName", prop.getProperty("Capability_ApplicationName"));
 		capabilities.setCapability("Capability_DurationInMinutes", prop.getProperty("Capability_DurationInMinutes"));
 		capabilities.setCapability("Capability_DeviceFullName",prop.getProperty("Capability_DeviceFullName"));
+		
+		//carina capability
 		capabilities.setCapability("deviceType",prop.getProperty("deviceType"));
 		capabilities.setCapability("platformName",prop.getProperty("platformName"));
 		capabilities.setCapability("automationName",prop.getProperty("automationName"));

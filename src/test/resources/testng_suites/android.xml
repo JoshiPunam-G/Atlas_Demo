@@ -32,5 +32,4 @@
 			<class name="com.qaprosoft.carina.demo.MobileSampleTest" />
 		</classes>
 	</test>
-
 </suite>

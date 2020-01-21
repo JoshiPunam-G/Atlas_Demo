@@ -72,10 +72,10 @@ public class M1CloudActivities {
 		String propName = null;
 
 		if(jenkinsJobEnvironment.equals("DEV")){
-			propName = "Samsung_Galaxy_J7_Prime.properties";
+			propName = "Samsung_Galaxy_J6.properties";
 		}
 		else if(jenkinsJobEnvironment.equals("QA")){
-			propName = "Samsung_Galaxy_J7_Prime.properties";
+			propName = "Samsung_Galaxy_J6.properties";
 		}
 		else{
 			propName = "Oneplus_7_Android_9.properties";
